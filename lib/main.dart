@@ -28,13 +28,13 @@ class Home extends HookWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Todo List"),
+        title: Text("Data Terkasus"),
       ),
       body: Column(
         children: [
           TextField(
             controller: _controller,
-            decoration: InputDecoration(labelText: 'Todo...'),
+            decoration: InputDecoration(labelText: 'Masukkan data disini...'),
             onSubmitted: (value) {
               context.read(itemListProvider.notifier).addItem(
                     Item(name: value),

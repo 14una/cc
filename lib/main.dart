@@ -53,13 +53,22 @@ class Home extends HookWidget {
                   itemBuilder: (context, index) {
                     final Item item = itemList[index];
 
-                    return CheckboxListTile(
-                      value: item.isDone,
-                      onChanged: (value) {
+                    return Dismissible(
+                      key: ValueKey(item.id),
+                      onDismissed: (direction) {
                         context
                             .read(itemListProvider.notifier)
-                            .updateItem(item..isDone = value ?? false);
+                            .deleteItem(item);
                       },
+                      child: CheckboxListTile(
+                        value: item.isDone,
+                        title: Text(item.name),
+                        onChanged: (value) {
+                          context
+                              .read(itemListProvider.notifier)
+                              .updateItem(item..isDone = value ?? false);
+                        },
+                      ),
                     );
                   },
                 );

@@ -1,5 +1,5 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:cc/models/Item.dart';
+import 'package:cc/models/item.dart';
 
 final itemListProvider = StateNotifierProvider<ItemListNotifier, List<Item>>(
   (_) => ItemListNotifier(),
